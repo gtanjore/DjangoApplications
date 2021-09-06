@@ -1,0 +1,40 @@
+{% load bootstrap5 %}
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Employee Records</title>  
+     {% load static %}  
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>  
+<body>  
+<table class="table table-striped table-bordered table-sm">  
+    <thead class="table-dark">  
+    <tr>  
+        <th>Employee ID</th>  
+        <th>Employee Name</th>  
+        <th>Employee Email</th>  
+        <th>Employee Contact</th>  
+        <th>Actions</th>  
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for employee in employees %}  
+    <tr>  
+        <td>{{ employee.eid }}</td>  
+        <td>{{ employee.ename }}</td>  
+        <td>{{ employee.eemail }}</td>  
+        <td>{{ employee.econtact }}</td>  
+        <td>  
+            <a href="/emp/edit/{{ employee.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+            <a href="/emp/delete/{{ employee.id }}">Delete</a>  
+        </td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+<center><a href="../addemployee/" class="btn btn-primary">Add New Record</a></center>  
+</body>  
+</html>  
